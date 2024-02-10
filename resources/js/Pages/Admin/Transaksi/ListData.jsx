@@ -34,7 +34,7 @@ export default function Index({listTransaksi}){
                         <td className="border-2" >{trans.transaction_header.date_paid}</td>
                         <td className="border-2" >{trans.ms_category.name}</td>
                         <td className="border-2" >{trans.name}</td>
-                        <td className="border-2" >Action</td>
+                        <td className="border-2" >{trans.value}</td>
                         <td className="border-2" >
                             <Link href={route('admin.dashboard.edit_data_transaksi', trans.id)}>
                                 <PrimaryButton className="bg-yellow-500">

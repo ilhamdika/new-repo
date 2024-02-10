@@ -78,7 +78,7 @@ class Transaksi extends Controller
             'ms_category_id' => $request->input('ms_category_id')
         ]);
 
-        return redirect()->route('admin.dashboard.list_transaksi');
+        return Inertia::location(route('admin.dashboard.list_transaksi'));
     }
 
     public function editDataTransaksi1($id)
