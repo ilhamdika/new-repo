@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Dashboard;
+use App\Http\Controllers\Admin\Fibonaci;
 use App\Http\Controllers\Admin\Transaksi;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -54,6 +55,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
 
     Route::get('/list-transaksi', [Transaksi::class, 'listTransaksi'])->name('list_transaksi');
     Route::get('/rekap-transaksi', [Transaksi::class, 'rekapTransaksi'])->name('rekap_transaksi');
+
+    Route::get('/fibonaci', [Fibonaci::class, 'index'])->name('fibonaci');
+    Route::post('/fibonaci', [Fibonaci::class, 'calculateSum'])->name('calculate_sum');
 });
 
 Route::prefix('prototype')->group(function () {

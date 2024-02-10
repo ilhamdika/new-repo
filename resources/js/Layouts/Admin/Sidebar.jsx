@@ -8,6 +8,7 @@ import { HiOutlineViewList } from "react-icons/hi";
 import { CiLogout } from "react-icons/ci";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { AiFillCaretDown } from "react-icons/ai";
+import { CiCalculator1 } from "react-icons/ci";
 
 export default function SideBar({ click, icon }) {
     const [open, setOpen] = useState(true);
@@ -37,6 +38,11 @@ export default function SideBar({ click, icon }) {
                 }
             ]
         },
+        {
+            name: "Bilangan",
+            link: 'admin.dashboard.fibonaci',
+            src: <CiCalculator1 size="32" color="black" className="dark:bg-slate-200 rounded-xl" />,
+        }
     ];
 
     const handleSubmenuClick = (index) => {
