@@ -36,7 +36,7 @@ export default function Index({listTransaksi}){
                         <td className="border-2" >{trans.name}</td>
                         <td className="border-2" >Action</td>
                         <td className="border-2" >
-                            <Link>
+                            <Link href={route('admin.dashboard.edit_data_transaksi', trans.id)}>
                                 <PrimaryButton className="bg-yellow-500">
                                     <CiEdit size={20} />
                                 </PrimaryButton>

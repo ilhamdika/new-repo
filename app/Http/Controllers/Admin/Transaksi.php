@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Transaction_header;
 use App\Models\Transaction_detail;
+use App\Models\Ms_category;
 
 class Transaksi extends Controller
 {
@@ -56,10 +57,40 @@ class Transaksi extends Controller
         // ]);
     }
 
-
-    public function editDataTransaksi()
+    public function editDataTransaksi($id)
     {
-        return Inertia::render('Admin/Transaksi/Edit');
+        $transactionDetail = Transaction_detail::where('id', $id)->get();
+        $category = Ms_category::all();
+        return Inertia::render('Admin/Transaksi/Edit', [
+            'transactionDetail' => $transactionDetail,
+            'category' => $category
+        ]);
+    }
+
+    public function updateDataTransaksi(Request $request, $id)
+    {
+        // return $request->all();
+        // die();
+        $transactionDetail = Transaction_detail::find($id);
+        $transactionDetail->update([
+            'name' => $request->input('name'),
+            'value' => $request->input('value'),
+            'ms_category_id' => $request->input('ms_category_id')
+        ]);
+
+        return redirect()->route('admin.dashboard.list_transaksi');
+    }
+
+    public function editDataTransaksi1($id)
+    {
+        $transactionDetail = Transaction_detail::where('transaction_header_id', $id)->get();
+        $transactionHeader = Transaction_header::find($id);
+        $category = Ms_category::all();
+        return Inertia::render('Admin/Transaksi/Edit', [
+            'transactionDetail' => $transactionDetail,
+            'transactionHeader' => $transactionHeader,
+            'category' => $category
+        ]);
     }
 
     public function listTransaksi()

@@ -44,7 +44,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::get('/tambah-data-transaksi', [Transaksi::class, 'tambahDataTransaksi'])->name('tambah_data_transaksi');
     Route::post('/tambah-data-transaksi', [Transaksi::class, 'storeDataTransaksi'])->name('store_data_transaksi');
 
-    Route::get('/edit-data-transaksi', [Transaksi::class, 'editDataTransaksi'])->name('edit_data_transaksi');
+    Route::get('/edit-data-transaksi/{id}', [Transaksi::class, 'editDataTransaksi'])->name('edit_data_transaksi');
+    Route::put('/edit-data-transaksi/{id}', [Transaksi::class, 'updateDataTransaksi'])->name('update_data_transaksi');
+
     Route::get('/list-transaksi', [Transaksi::class, 'listTransaksi'])->name('list_transaksi');
     Route::get('/rekap-transaksi', [Transaksi::class, 'rekapTransaksi'])->name('rekap_transaksi');
 });
