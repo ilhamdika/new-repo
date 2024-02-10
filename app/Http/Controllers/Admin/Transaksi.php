@@ -50,11 +50,7 @@ class Transaksi extends Controller
             ]);
         }
 
-        // return response()->json([
-        //     'transactionHeader' => $transactionHeader,
-        //     'formInputs' => $formInputs,
-        //     'formInputs2' => $formInputs2
-        // ]);
+        return Inertia::location(route('admin.dashboard.list_transaksi'));
     }
 
     public function editDataTransaksi($id)
@@ -91,6 +87,13 @@ class Transaksi extends Controller
             'transactionHeader' => $transactionHeader,
             'category' => $category
         ]);
+    }
+
+    public function deleteDataTransaksi($id)
+    {
+        $transactionDetail = Transaction_detail::find($id);
+        $transactionDetail->delete();
+        return Inertia::location(route('admin.dashboard.list_transaksi'));
     }
 
     public function listTransaksi()

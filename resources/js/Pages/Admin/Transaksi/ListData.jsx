@@ -5,9 +5,16 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdEditNote } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({listTransaksi}){
-    console.log(listTransaksi)
+    // console.log(listTransaksi)
+    const handleDelete = (id) => {
+        if (window.confirm("Are you sure you want to delete this item?")) {
+            Inertia.delete(route('admin.dashboard.delete_data_transaksi', id));
+        }
+    };
+
     return(
         <LayoutAdmin>
             <h1 className="text-3xl mb-3">List data</h1>
@@ -53,7 +60,10 @@ export default function Index({listTransaksi}){
                                     <MdEditNote size={20} />
                                 </PrimaryButton>
                             </Link>
-                            <PrimaryButton className="bg-red-600">
+                            <PrimaryButton 
+                            className="bg-red-600"
+                            onClick={() => handleDelete(trans.id)}
+                            >
                                 <MdDeleteOutline size={20} />
                             </PrimaryButton>
                         </td>
