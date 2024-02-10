@@ -81,12 +81,12 @@ class Transaksi extends Controller
         return Inertia::location(route('admin.dashboard.list_transaksi'));
     }
 
-    public function editDataTransaksi1($id)
+    public function editDataTransaksiAll($id)
     {
         $transactionDetail = Transaction_detail::where('transaction_header_id', $id)->get();
         $transactionHeader = Transaction_header::find($id);
         $category = Ms_category::all();
-        return Inertia::render('Admin/Transaksi/Edit', [
+        return Inertia::render('Admin/Transaksi/Edit1', [
             'transactionDetail' => $transactionDetail,
             'transactionHeader' => $transactionHeader,
             'category' => $category

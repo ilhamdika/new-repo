@@ -3,6 +3,7 @@ import PrimaryButton from "@/Components/PrimaryButton"
 import { Link } from "@inertiajs/react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
+import { MdEditNote } from "react-icons/md";
 
 export default function Index({listTransaksi}){
     console.log(listTransaksi)
@@ -39,6 +40,11 @@ export default function Index({listTransaksi}){
                             <Link href={route('admin.dashboard.edit_data_transaksi', trans.id)}>
                                 <PrimaryButton className="bg-yellow-500">
                                     <CiEdit size={20} />
+                                </PrimaryButton>
+                            </Link>
+                            <Link href={route('admin.dashboard.edit_data_transaksi_all', trans.transaction_header_id)}>
+                                <PrimaryButton className="bg-green-500">
+                                    <MdEditNote size={20} />
                                 </PrimaryButton>
                             </Link>
                             <PrimaryButton className="bg-red-600">
