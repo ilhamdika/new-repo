@@ -4,7 +4,8 @@ import { Link } from "@inertiajs/react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 
-export default function Index(){
+export default function Index({listTransaksi}){
+    console.log(listTransaksi)
     return(
         <LayoutAdmin>
             <h1 className="text-3xl mb-3">List data</h1>
@@ -23,15 +24,14 @@ export default function Index(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            test
-                        </td>
-                        <td>Naruto</td>
-                        <td>Naruto</td>
-                        <td>Naruto</td>
-                        <td>Naruto</td>
+                    {listTransaksi.data.map((trans, i=1) => (
+                    <tr key={trans.id}>
+                        <td>{i+1}</td>
+                        <td>{trans.transaction_header.description}</td>
+                        <td>{trans.transaction_header.code}</td>
+                        <td>{trans.transaction_header.rate_euro}</td>
+                        <td>{trans.transaction_header.date_paid}</td>
+                        <td>{trans.name}</td>
                         <td>Action</td>
                         <td>
                             <Link>
@@ -44,9 +44,22 @@ export default function Index(){
                             </PrimaryButton>
                         </td>
                     </tr>
+                    ))}
                     
                 </tbody>
             </table>
+            <div className="mt-4">
+                {listTransaksi.links.map((link, index) => (
+                    <Link
+                        key={index}
+                        href={link.url}
+                        className={`ml-2 px-4 py-2 border ${link.active ? 'bg-blue-500 text-white' : ''}`}
+                    >
+                        {link.label == 'Next &raquo;' ? 'Next' : link.label == '&laquo; Previous' ? 'Previous' : link.label}
+                    </Link>
+                ))}
+            </div>
+
         </LayoutAdmin>
     )
 }

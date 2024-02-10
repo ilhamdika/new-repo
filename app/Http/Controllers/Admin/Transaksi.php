@@ -64,7 +64,10 @@ class Transaksi extends Controller
 
     public function listTransaksi()
     {
-        return Inertia::render('Admin/Transaksi/ListData');
+        $listTransaksi = Transaction_detail::with('transaction_header', 'ms_category')->paginate(10);
+        return Inertia::render('Admin/Transaksi/ListData', [
+            'listTransaksi' => $listTransaksi,
+        ]);
     }
 
     public function rekapTransaksi()
