@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdEditNote } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
 
 export default function Index({listTransaksi}){
     console.log(listTransaksi)
@@ -11,7 +12,12 @@ export default function Index({listTransaksi}){
         <LayoutAdmin>
             <h1 className="text-3xl mb-3">List data</h1>
 
-            <table className="w-full">
+            <Link href={route('admin.dashboard.tambah_data_transaksi')} className="mb-9">
+                <PrimaryButton className="bg-green-500">
+                    <FaPlus />Tambah Data
+                </PrimaryButton>
+            </Link>
+            <table className="w-full mt-3">
                 <thead>
                     <tr className="border-2">
                         <th className="border-2" >No</th>
