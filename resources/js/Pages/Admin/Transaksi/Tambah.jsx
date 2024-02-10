@@ -6,7 +6,7 @@ import TextArea from "@/Components/TextArea";
 import { useForm } from "@inertiajs/react";
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Index(){
+export default function Index({category}){
     
     const [title, setTitle] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(1);
@@ -148,8 +148,11 @@ export default function Index(){
                         </div>
                         <div className="w-5/6">
                             <select className="w-1/4" value={selectedCategory} onChange={handleCategoryChange}>
-                                <option value="1">Income</option>
-                                <option value="2">Expense</option>
+                                {category.map((item) => (
+                                <option key={item.id} value={item.id}>
+                                    {item.name}
+                                </option>
+                                ))}
                             </select>
                                 <div className="flex mt-4">
                                 <div className="w-1/2">
@@ -200,8 +203,11 @@ export default function Index(){
                         </div>
                         <div className="w-5/6">
                             <select className="w-1/4" value={selectedCategory2} onChange={handleCategoryChange2}>
-                                <option value="1">Income</option>
-                                <option value="2">Expense</option>
+                                {category.map((item) => (
+                                <option key={item.id} value={item.id}>
+                                    {item.name}
+                                </option>
+                                ))}
                             </select>
                             <div className="flex mt-4">
                                 <div className="w-1/2">

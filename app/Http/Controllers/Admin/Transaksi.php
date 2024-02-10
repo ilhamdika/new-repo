@@ -13,7 +13,10 @@ class Transaksi extends Controller
 {
     public function tambahDataTransaksi()
     {
-        return Inertia::render('Admin/Transaksi/Tambah');
+        $category = Ms_category::all();
+        return Inertia::render('Admin/Transaksi/Tambah', [
+            'category' => $category
+        ]);
     }
 
     public function storeDataTransaksi(Request $request)
