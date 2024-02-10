@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->integer('code');
+            $table->integer('rate_euro');
             $table->date('date_paid');
             $table->timestamps();
         });

@@ -10,30 +10,32 @@ export default function Index({listTransaksi}){
         <LayoutAdmin>
             <h1 className="text-3xl mb-3">List data</h1>
 
-            <table>
+            <table className="w-full">
                 <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Deskripsi</th>
-                        <th>Code</th>
-                        <th>Rate Euro</th>
-                        <th>Kategori</th>
-                        <th>Nama Transaksi</th>
-                        <th>Nominal</th>
-                        <th>Aksi</th>
+                    <tr className="border-2">
+                        <th className="border-2" >No</th>
+                        <th className="border-2" >Deskripsi</th>
+                        <th className="border-2" >Code</th>
+                        <th className="border-2" >Rate Euro</th>
+                        <th className="border-2" >Date Paid</th>
+                        <th className="border-2" >Kategori</th>
+                        <th className="border-2" >Nama Transaksi</th>
+                        <th className="border-2" >Nominal(IDR)</th>
+                        <th className="border-2" >Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     {listTransaksi.data.map((trans, i=1) => (
-                    <tr key={trans.id}>
-                        <td>{i+1}</td>
-                        <td>{trans.transaction_header.description}</td>
-                        <td>{trans.transaction_header.code}</td>
-                        <td>{trans.transaction_header.rate_euro}</td>
-                        <td>{trans.transaction_header.date_paid}</td>
-                        <td>{trans.name}</td>
-                        <td>Action</td>
-                        <td>
+                    <tr className="border-2" key={trans.id}>
+                        <td className="border-2">{i+1}</td>
+                        <td className="border-2" >{trans.transaction_header.description}</td>
+                        <td className="border-2" >{trans.transaction_header.code}</td>
+                        <td className="border-2" >{trans.transaction_header.rate_euro}</td>
+                        <td className="border-2" >{trans.transaction_header.date_paid}</td>
+                        <td className="border-2" >{trans.ms_category.name}</td>
+                        <td className="border-2" >{trans.name}</td>
+                        <td className="border-2" >Action</td>
+                        <td className="border-2" >
                             <Link>
                                 <PrimaryButton className="bg-yellow-500">
                                     <CiEdit size={20} />
