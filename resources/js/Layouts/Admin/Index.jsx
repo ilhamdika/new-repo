@@ -1,4 +1,4 @@
-import SideBar from "@/Layouts/Admin/SideBar";
+import SideBar from "@/Layouts/Admin/Sidebar";
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import Topbar from "@/Layouts/Admin/Topbar";
