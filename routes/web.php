@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\Fibonaci;
 use App\Http\Controllers\Admin\Transaksi;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\LandingPage;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -61,10 +62,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::post('/fibonaci', [Fibonaci::class, 'penjumlahanFibonaci'])->name('penjumlahan_fibonaci');
 });
 
-Route::get('/', function () {
-    return Inertia::render('User/Index');
-})->name('welcome');
-
+// Route::get('/', function () {
+//     // return Inertia::render('User/Index');
+//     Route::get()
+// })->name('welcome');
+Route::get('/', [LandingPage::class, 'index'])->name('welcome');
 Route::prefix('prototype')->group(function () {
     route::get('/admin', function () {
         return Inertia::render('Prototype/Admin/Index');
