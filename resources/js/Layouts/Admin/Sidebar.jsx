@@ -39,7 +39,7 @@ export default function SideBar({ click, icon }) {
             ]
         },
         {
-            name: "Bilangan",
+            name: "Bilangan fibonaci",
             link: 'admin.dashboard.fibonaci',
             src: <CiCalculator1 size="32" color="black" className="dark:bg-slate-200 rounded-xl" />,
         }

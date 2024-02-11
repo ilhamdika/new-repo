@@ -1,4 +1,5 @@
 import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
 import LayoutAdmin from "@/Layouts/Admin/Index"
 import { useForm } from '@inertiajs/react';
 
@@ -10,7 +11,7 @@ export default function Index(){
       });
     
       const calculateSum = () => {
-        post(route('admin.dashboard.calculate_sum'), {
+        post(route('admin.dashboard.penjumlahan_fibonaci'), {
           n1: data.n1,
           n2: data.n2,
         });
@@ -22,7 +23,7 @@ export default function Index(){
             <div>
                 <h1>Fibonacci Sum</h1>
                 <label htmlFor="n1">Enter n1:</label>
-                <input
+                <TextInput
                     type="number"
                     id="n1"
                     value={data.n1}
@@ -30,7 +31,7 @@ export default function Index(){
                 />
                 <br />
                 <label htmlFor="n2">Enter n2:</label>
-                <input
+                <TextInput
                     type="number"
                     id="n2"
                     value={data.n2}

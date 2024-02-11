@@ -21,26 +21,27 @@ use Inertia\Inertia;
 
 
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dashboard.')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::get('/admin', [Dashboard::class, 'index'])->name('index');
     Route::get('/tambah-data-transaksi', [Transaksi::class, 'tambahDataTransaksi'])->name('tambah_data_transaksi');
     Route::post('/tambah-data-transaksi', [Transaksi::class, 'storeDataTransaksi'])->name('store_data_transaksi');
@@ -57,8 +58,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::get('/rekap-transaksi', [Transaksi::class, 'rekapTransaksi'])->name('rekap_transaksi');
 
     Route::get('/fibonaci', [Fibonaci::class, 'index'])->name('fibonaci');
-    Route::post('/fibonaci', [Fibonaci::class, 'calculateSum'])->name('calculate_sum');
+    Route::post('/fibonaci', [Fibonaci::class, 'penjumlahanFibonaci'])->name('penjumlahan_fibonaci');
 });
+
+Route::get('/', function () {
+    return Inertia::render('User/Index');
+})->name('welcome');
 
 Route::prefix('prototype')->group(function () {
     route::get('/admin', function () {

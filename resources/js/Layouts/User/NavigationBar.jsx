@@ -5,20 +5,20 @@ import { BsList } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
 
 export default function NavigationBar ({text, click}){
-    let Menu =[
+    let Menu = [
         {
-          name:"Homepage",
+          name: "Homepage",
           link: "prototype.index",
           submenu: []
         },
         {
-          name:"News",
+          name: "News",
           link: "prototype.index",
           submenu: []
         },
         {
-          name:"Produk",
-          link:"prototype.portfolio",
+          name: "Produk",
+          link: "prototype.portfolio",
           submenu: [
             { name: "Google", link: "submenu1" },
             { name: "Facebook Ads", link: "submenu2" },
@@ -27,48 +27,57 @@ export default function NavigationBar ({text, click}){
           ]
         },
         {
-          name:"Pemesanan",
+          name: "Pemesanan",
           link: "prototype.about",
           submenu: []
         },
         {
-          name:"Kontak",
+          name: "Kontak",
           link: "prototype.about",
           submenu: []
         },
-        
-      ];
-    let [open,setOpen]=useState(false);
+    ];
+
+    let [open, setOpen] = useState(false);
+    let [activeMenu, setActiveMenu] = useState(null);
     let [hoveredMenu, setHoveredMenu] = useState(null);
 
     const handleMenuHover = (index) => {
         setHoveredMenu(index);
     };
 
+    const handleMenuClick = (index) => {
+        setActiveMenu(index);
+        setOpen(false);  
+    };
+
     return (
         <div className='shadow-tablet w-full fixed-absolute top-0 left-0 mobile:fixed mobile:bg-gray-500'>
             <div className='tablet:flex items-center justify-between py-4 tablet:px-10 px-7'>
-                <div className='text-3xl cursor-pointer flex items-center dark:text-white'>
+                <div className='text-3xl cursor-pointer flex items-center dark:text-white mobile:text-xl'>
                     PartnerIklan.com
                 </div>
                 
-                <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-4 cursor-pointer tablet:hidden'>
+                <div onClick={() => setOpen(!open)} className='text-3xl absolute right-11 top-4 cursor-pointer tablet:hidden'>
                     {open ? <IoCloseSharp /> : <BsList />}
                 </div>
 
-                <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static z-20 bg-white left-0 w-full tablet:w-auto tablet:bg-transparent mobile:bg-gray-500 tablet:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
+                <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static z-20 bg-white left-0 w-full tablet:w-auto tablet:bg-transparent mobile:bg-gray-500 tablet:pl-0 pl-1 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
                     {Menu.map((menu, index) => (
                         <li key={menu.name} 
-                            className='text-xl tablet:my-0 my-1 relative'
+                            className={`text-xl tablet:my-0 my-1 relative ${index === activeMenu ? 'border-b-2 border-blue-500' : ''}`}
                             onMouseEnter={() => handleMenuHover(index)}
                             onMouseLeave={() => setHoveredMenu(null)}>
-                            <Link className='dark:text-white hover:text-gray-400 duration-500 ml-5 mr-10'>
+                            <Link 
+                                className={`dark:text-white hover:text-gray-400 duration-500 ml-2 mr-2 tablet:text-l ${index === activeMenu ? 'font-bold' : ''}`}
+                                onClick={() => handleMenuClick(index)}
+                            >
                                 {menu.name}
                             </Link>
                             {menu.submenu.length > 0 && hoveredMenu === index && (
-                                <ul className="absolute left-0 top-full">
+                                <ul className="absolute mobile:relative left-0 top-full bg-slate-200 rounded-xl">
                                     {menu.submenu.map((subMenu) => (
-                                        <li key={subMenu.name}>
+                                        <li key={subMenu.name} className='dark:text-white hover:text-gray-400 duration-500 ml-2 mr-2 tablet:text-l mt-4 mb-2'>
                                             <Link href={subMenu.link}>{subMenu.name}</Link>
                                         </li>
                                     ))}

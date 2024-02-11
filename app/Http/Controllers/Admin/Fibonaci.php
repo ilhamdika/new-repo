@@ -13,17 +13,17 @@ class Fibonaci extends Controller
         return Inertia::render('Admin/Fibonaci/Index');
     }
 
-    public function calculateSum()
+    public function penjumlahanFibonaci()
     {
         $n1 = request('n1');
         $n2 = request('n2');
 
-        $sum = $this->fibonacciSum($n1, $n2);
+        $sum = $this->pertambahanFibonaci($n1, $n2);
 
-        return response()->json(['sum' => $sum]);
+        return response()->json(['result' => $sum]);
     }
 
-    private function fibonacciSum($n1, $n2)
+    private function pertambahanFibonaci($n1, $n2)
     {
         $fibonacciN1 = $this->fibonacci($n1);
         $fibonacciN2 = $this->fibonacci($n2);
