@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { FaPlus } from "react-icons/fa";
 import TextInput from "@/Components/TextInput";
 import TextArea from "@/Components/TextArea";
-import route from "vendor/tightenco/ziggy/src/js";
 
 export default function Index(){
     
