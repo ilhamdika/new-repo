@@ -14,7 +14,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "http://localhost",
+        "APP_URL": "https://new-repo-three-silk.vercel.app/",
         "APP_KEY": "base64:Woa4MijWcb+Ln1iz6HfkjI6OVx46p9FzWMQsIFUNtNc=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
