@@ -1,7 +1,7 @@
-import SideBar from "./SideBar";
+import SideBar from "@/Layouts/Admin/SideBar";
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
-import Topbar from "./Topbar";
+import Topbar from "@/Layouts/Admin/Topbar";
 
 export default function Authenticated ({auth, children}){
     const [dark, setDark] = useState(true);

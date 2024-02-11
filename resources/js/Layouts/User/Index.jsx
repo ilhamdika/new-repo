@@ -1,4 +1,4 @@
-import NavigationBar from "./NavigationBar"
+import NavigationBar from "@/Layouts/User/NavigationBar";
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
