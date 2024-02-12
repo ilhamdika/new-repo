@@ -5,26 +5,26 @@ export default function Index(){
         <Layout>
             <div className="">
                 <div className="w-full mx-auto px-4 mobile:pt-20">
-                    <img className="w-full h-auto laptop:h-23" src="https://increasink.co.id/blog/ejechoof/2023/04/Contoh-Iklan-Produk-Baju.png" alt="Main Image" />
+                    <img className="w-full h-auto laptop:h-23" src="/images/her.jpg" alt="Main Image" />
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 laptop:px-8 laptop:py-5">
 
                     <div className="grid grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-4 laptop:grid-cols-4 gap-4">
                         <div className="flex items-center justify-center bg-white rounded-lg shadow-lg p-5">
-                            <img src="https://ibrand.id/wp-content/uploads/2020/02/Google-Adwords.jpg" alt="Gambar 1" className="w-full h-auto" />
+                            <img src="/images/goo.jpg" alt="Gambar 1" className="w-full h-auto" />
                         </div>
 
                         <div className="flex items-center justify-center bg-white rounded-lg shadow-lg p-5">
-                            <img src="https://www.karier.mu/blog/wp-content/uploads/2022/08/Facebook-Ads-Digunakan-Untuk-Apa.png" alt="Gambar 2" className="w-full h-auto" />
+                            <img src="/images/fb.png" alt="Gambar 2" className="w-full h-auto" />
                         </div>
 
                         <div className="flex items-center justify-center bg-white rounded-lg shadow-lg p-5">
-                            <img src="https://ruko.s3.ap-southeast-1.amazonaws.com/rumahkomunitas.com/tulisan/020519104308_SEO-article-header.jpg" alt="Gambar 3" className="w-full h-auto " />
+                            <img src="/images/seo.jpg" alt="Gambar 3" className="w-full h-auto " />
                         </div>
 
                         <div className="flex items-center justify-center bg-white rounded-lg shadow-lg p-5">
-                            <img src="https://transform-mpi.com/wp-content/uploads/2017/12/TRAINING-TENTANG-ENHANCING-YOUR-SKILLS-TO-BECOME-A-SUCCESSFUL-CREDIT-ANALYST.jpg" alt="Gambar 4" className="w-full h-auto" />
+                            <img src="/images/train.jpg" alt="Gambar 4" className="w-full h-auto" />
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ export default function Index(){
                     <div className="laptop:flex mobile:flex-col py-4">
                         <div className="laptop:w-1/3 mobile:w-full">
                             <div className="flex items-center justify-center laptop:p-5">
-                                <img src="https://ibrand.id/wp-content/uploads/2020/02/Google-Adwords.jpg" alt="Gambar 1" className="w-full h-auto" />
+                                <img src="/images/goo.jpg" alt="Gambar 1" className="w-full h-auto" />
                             </div>
                         </div>
 
@@ -63,14 +63,14 @@ export default function Index(){
                         </div>
                         <div className="laptop:w-1/3 mobile:w-full">
                             <div className="flex items-center justify-center laptop:h-auto laptop:p-5">
-                                <img src="https://www.karier.mu/blog/wp-content/uploads/2022/08/Facebook-Ads-Digunakan-Untuk-Apa.png" alt="Gambar 2" className="w-full h-auto" />
+                                <img src="/images/fb.png" alt="Gambar 2" className="w-full h-auto" />
                             </div>
                         </div>
                     </div>
                     <div className="laptop:flex mobile:py-4">
                         <div className="laptop:w-1/3 mobile:w-full">
                             <div className="flex items-center justify-center laptop:p-5">
-                                <img src="https://ruko.s3.ap-southeast-1.amazonaws.com/rumahkomunitas.com/tulisan/020519104308_SEO-article-header.jpg" alt="Gambar 3" className="w-full h-auto " />
+                                <img src="/images/seo.jpg" alt="Gambar 3" className="w-full h-auto " />
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@ export default function Index(){
                         </div>
                         <div className="laptop:w-1/3 mobile:w-full">
                             <div className="flex items-center justify-center laptop:h-auto laptop:p-5">
-                                <img src="https://transform-mpi.com/wp-content/uploads/2017/12/TRAINING-TENTANG-ENHANCING-YOUR-SKILLS-TO-BECOME-A-SUCCESSFUL-CREDIT-ANALYST.jpg" alt="Gambar 4" className="w-full h-auto" />
+                                <img src="/images/train.jpg" alt="Gambar 4" className="w-full h-auto" />
                             </div>
                         </div>
                     </div>
